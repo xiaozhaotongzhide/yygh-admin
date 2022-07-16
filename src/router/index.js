@@ -38,28 +38,6 @@ export const constantRouterMap = [
   },
 
   {
-    path: '/example',
-    component: Layout,
-    redirect: '/example/table',
-    name: 'Example',
-    meta: { title: 'Example', icon: 'example' },
-    children: [
-      {
-        path: 'table',
-        name: 'Table',
-        component: () => import('@/views/table/index'),
-        meta: { title: 'Table', icon: 'table' }
-      },
-      {
-        path: 'tree',
-        name: 'Tree',
-        component: () => import('@/views/tree/index'),
-        meta: { title: 'Tree', icon: 'tree' }
-      }
-    ]
-  },
-
-  {
     path: '/hospSet',
     component: Layout,
     redirect: '/example/table',
@@ -174,6 +152,28 @@ export const constantRouterMap = [
         name: '支付统计',
         component: () => import('@/views/statistics/order/amount'),
         meta: { title: '支付统计' }
+      }
+    ]
+  },
+  {
+    path: '/download',
+    component: Layout,
+    redirect: '/download',
+    name: 'BasesInfo',
+    meta: { title: '查询下载', icon: 'table' },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'index',
+        name: '查询日报',
+        component: () => import('@/views/download/index'),
+        meta: { title: '查询日报' }
+      },
+      {
+        path: 'center',
+        name: '下载中心',
+        component: () => import('@/views/download/center'),
+        meta: { title: '下载中心' }
       }
     ]
   },
