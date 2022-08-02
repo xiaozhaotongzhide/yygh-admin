@@ -177,7 +177,28 @@ export const constantRouterMap = [
       }
     ]
   },
-
+  {
+    path: '/chat',
+    component: Layout,
+    redirect: '/chat',
+    name: 'BasesInfo',
+    meta: { title: '客服中心', icon: 'table' },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'index',
+        name: '客服管理',
+        component: () => import('@/views/chat/index'),
+        meta: { title: '客服管理' }
+      },
+      {
+        path: 'center',
+        name: '聊天记录',
+        component: () => import('@/views/chat/list'),
+        meta: { title: '聊天记录' }
+      }
+    ]
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
 
