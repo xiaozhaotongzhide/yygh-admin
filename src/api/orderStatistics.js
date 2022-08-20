@@ -17,5 +17,17 @@ export default {
       method: 'get',
       params: searchObj
     })
+  },
+  getCpu() {
+    return request({
+      url: `${api_name}/getCpu`,
+      method: 'get'
+    })
+  },
+  getRam() {
+    return request({
+      url: `${api_name}/getRam`,
+      method: 'get'
+    })
   }
 }

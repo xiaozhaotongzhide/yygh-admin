@@ -199,6 +199,28 @@ export const constantRouterMap = [
       }
     ]
   },
+  {
+    path: '/actuator',
+    component: Layout,
+    redirect: '/actuator',
+    name: 'BasesInfo',
+    meta: { title: '监测中心', icon: 'table' },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'cpu',
+        name: 'CPU监测',
+        component: () => import('@/views/statistics/actuator/cpu'),
+        meta: { title: 'CPU监测' }
+      },
+      {
+        path: 'ram',
+        name: '内存监测',
+        component: () => import('@/views/statistics/actuator/ram'),
+        meta: { title: '内存监测' }
+      }
+    ]
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
 
