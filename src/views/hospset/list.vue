@@ -29,22 +29,20 @@
       <el-table-column prop="contactsName" label="联系人姓名" />
       <el-table-column prop="contactsPhone" label="联系人手机" />
       <el-table-column label="状态" width="80">
-        <template slot-scope="scope"
-          >{{ scope.row.status === 1 ? "可用" : "不可用" }}
-        </template>
+        <template slot-scope="scope">{{ scope.row.status === 1 ? "可用" : "不可用" }}</template>
       </el-table-column>
 
       <el-table-column label="操作" width="280" align="center">
         <template slot-scope="scope">
-               <el-button type="danger" size="mini" 
+               <el-button type="danger" size="mini"
                   icon="el-icon-delete" @click="removeDataById(scope.row.id)">删除</el-button>
-               <el-button v-if="scope.row.status==1" type="primary" size="mini" 
+               <el-button v-if="scope.row.status==1" type="primary" size="mini"
                   icon="el-icon-delete" @click="lockHostSet(scope.row.id,0)">锁定</el-button>
-               <el-button v-if="scope.row.status==0" type="danger" size="mini" 
+               <el-button v-if="scope.row.status==0" type="danger" size="mini"
                   icon="el-icon-delete" @click="lockHostSet(scope.row.id,1)">解锁</el-button>
             <router-link :to="'/hospSet/edit/'+scope.row.id">
                <el-button type="primary" size="mini" icon="el-icon-edit"></el-button>
-            </router-link>   
+            </router-link>
         </template>
       </el-table-column>
     </el-table>

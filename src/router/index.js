@@ -221,6 +221,60 @@ export const constantRouterMap = [
       }
     ]
   },
+  {
+    path: '/act',
+    component: Layout,
+    redirect: '/act',
+    name: 'BasesInfo',
+    meta: { title: '活动中心', icon: 'table' },
+    alwaysShow: true,
+    children: [
+      {
+        path: 'coupon',
+        name: '购物券管理',
+        component: () => import('@/views/act/coupon/list'),
+        meta: { title: '购物券管理' }
+      },
+      {
+        path: 'add',
+        name: '购物券添加',
+        component: () => import('@/views/act/coupon/add'),
+        meta: { title: '购物券添加' }
+      },
+      {
+        path: 'task',
+        name: '任务管理',
+        component: () => import('@/views/act/sign/list'),
+        meta: { title: '任务管理' }
+      },
+      {
+        path: 'signAdd',
+        name: '签到添加',
+        component: () => import('@/views/act/sign/add'),
+        meta: { title: '签到添加' }
+      },
+      {
+        path: 'userList',
+        name: '活动订单列表',
+        component: () => import('@/views/act/user/list'),
+        meta: { title: '活动订单列表' }
+      },
+      {
+        path: 'edit/:id',
+        name: 'EduTeacherEdit',
+        component: () => import('@/views/act/coupon/add'),
+        meta: { title: '编辑', noCache: true },
+        hidden: true
+      },
+      {
+        path: 'sign/:id',
+        name: 'EduTeacherEdit',
+        component: () => import('@/views/act/sign/add'),
+        meta: { title: '编辑', noCache: true },
+        hidden: true
+      }
+    ]
+  },
   { path: '*', redirect: '/404', hidden: true }
 ]
 
